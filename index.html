@@ -3,158 +3,403 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>bot0x.ai</title>
-    <meta name="description" content="bot0x.ai — Reserved domain. For strategic inquiries only.">
+    <title>Bot0x | The Financial Layer of AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Rajdhani:wght@300;500;600;700&family=Space+Grotesk:wght@300;600;700&display=swap" rel="stylesheet">
+    
     <style>
+        :root {
+            --bg-deep: #020204;
+            
+            /* Bot0x Palette */
+            --eth-purple: #8c52ff;    /* Layer 1 / 0x */
+            --ai-cyan: #00f3ff;       /* Intelligence */
+            --money-green: #00ff9d;   /* Stablecoins / Yield */
+            --alert-red: #ff3366;     /* X402 Protocol */
+            
+            --glass-bg: rgba(15, 15, 25, 0.7);
+            --border-base: rgba(255, 255, 255, 0.1);
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
-            line-height: 1.6; 
-            color: #ffffff; 
-            background: linear-gradient(135deg, #080406 0%, #10080c 100%);
-            min-height: 100vh; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            justify-content: center; 
-            padding: 20px; 
-            text-align: center; 
-            position: relative; 
-            overflow-x: hidden; 
+
+        body {
+            background-color: var(--bg-deep);
+            color: #fff;
+            font-family: 'Rajdhani', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
         }
-        .light-effect { 
-            position: absolute; 
-            top: 50%; 
-            left: 50%; 
-            width: min(120vw, 1000px); 
-            height: min(120vh, 1000px); 
-            background: radial-gradient(circle at center, rgba(220, 80, 100, 0.07) 0%, transparent 65%);
-            transform: translate(-50%, -50%); 
-            pointer-events: none; 
-            z-index: -1; 
+
+        /* --- BACKGROUND ENGINE --- */
+        #hash-canvas {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1; opacity: 0.25;
         }
-        .container { 
-            max-width: 760px; 
-            width: 100%; 
-            padding: 70px 40px; 
-            background: rgba(12, 6, 10, 0.85);
-            backdrop-filter: blur(16px); 
-            border-radius: 28px; 
-            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(220, 80, 100, 0.2); 
-            border: 1px solid rgba(220, 80, 100, 0.15); 
-            z-index: 1; 
+        .grid-net {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: linear-gradient(rgba(140, 82, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(140, 82, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px; z-index: -1;
+            mask-image: radial-gradient(circle at center, black 40%, transparent 85%);
         }
-        h1 { 
-            font-size: clamp(3.5rem, 10vw, 6.2rem); /* 适配8字符域名 */
-            font-weight: 200; 
-            letter-spacing: 0.15em; 
-            margin-bottom: 35px; 
-            opacity: 0.98; 
-            text-transform: lowercase; 
-            color: #f0b0b8;
+
+        .container {
+            max-width: 1200px; margin: 0 auto; padding: 3rem 1.5rem;
+            flex-grow: 1; position: relative; z-index: 10;
         }
-        .domain { display: inline-block; transition: opacity 0.3s ease; }
-        .domain:hover { opacity: 0.85; }
-        p { 
-            font-size: clamp(1.2rem, 4.5vw, 1.6rem); 
-            opacity: 0.85; 
-            max-width: 640px; 
-            margin: 0 auto 45px; 
-            line-height: 1.8; 
-            color: #d89098;
+
+        /* --- HEADER --- */
+        header { text-align: center; margin: 4rem 0 2rem 0; }
+
+        .logo-lockup {
+            display: inline-flex; align-items: center; justify-content: center;
+            background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.1);
+            padding: 1.5rem 3rem; border-radius: 4px; backdrop-filter: blur(12px);
+            margin-bottom: 2rem; position: relative; overflow: hidden;
         }
-        .note-section { 
-            background: rgba(20, 10, 16, 0.4); 
-            border-radius: 18px; 
-            padding: 28px; 
-            margin: 45px 0; 
-            border: 1px solid rgba(220, 80, 100, 0.25); 
+        .logo-lockup::after {
+            content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+            transform: skewX(-25deg); animation: shine-logo 6s infinite;
         }
-        .note-text { 
-            font-size: 0.98rem; 
-            opacity: 0.75; 
-            line-height: 1.8; 
-            color: #c07078;
+        @keyframes shine-logo { 0% { left: -100%; } 20% { left: 200%; } 100% { left: 200%; } }
+
+        .logo-text {
+            font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+            font-size: clamp(3rem, 6vw, 5rem); letter-spacing: -2px; line-height: 1;
         }
-        .contact-section { margin-top: 45px; }
-        .email-link { 
-            font-size: 1.5rem; 
-            color: #e8606c; 
-            text-decoration: none; 
-            font-family: 'Courier New', monospace; 
-            padding: 12px 26px; 
-            background: rgba(220, 80, 100, 0.12); 
-            border-radius: 12px; 
-            display: inline-block; 
-            border: 1px solid rgba(220, 80, 100, 0.4); 
-            transition: all 0.3s ease; 
+        .bot-part { color: #fff; text-shadow: 0 0 25px rgba(255,255,255,0.2); }
+        .x-part { color: var(--eth-purple); font-family: 'JetBrains Mono'; font-weight: 400; }
+
+        .core-statement {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.3rem; margin-bottom: 2rem;
+            background: linear-gradient(90deg, #fff, var(--money-green));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            font-weight: 600;
         }
-        .email-link:hover { 
-            background: rgba(220, 80, 100, 0.22); 
-            transform: translateY(-3px); 
-            box-shadow: 0 8px 20px rgba(220, 80, 100, 0.15); 
+
+        .thesis {
+            max-width: 800px; margin: 0 auto 3rem auto; text-align: center;
+            font-size: 1.1rem; line-height: 1.6; color: #ccc;
         }
-        .contact-note { 
-            font-size: 0.95rem; 
-            opacity: 0.65; 
-            margin-top: 18px; 
-            font-style: italic; 
-            color: #a85058;
+        .highlight { color: var(--ai-cyan); font-weight: 600; }
+
+        /* --- TOKEN TICKER STRIP --- */
+        .token-strip {
+            display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem;
+            margin-bottom: 4rem; padding: 1rem; border-top: 1px dashed rgba(255,255,255,0.1); border-bottom: 1px dashed rgba(255,255,255,0.1);
         }
-        .footer { 
-            position: absolute; 
-            bottom: 30px; 
-            font-size: 0.85rem; 
-            opacity: 0.4; 
-            width: 100%; 
-            text-align: center; 
-            color: #884048;
+        .token-item {
+            font-family: 'JetBrains Mono'; font-size: 0.9rem; color: #666; display: flex; align-items: center; gap: 8px;
         }
-        @media (max-width: 768px) { 
-            .container { padding: 50px 30px; margin: 20px; } 
-            .email-link { font-size: 1.3rem; } 
-            h1 { 
-                font-size: clamp(3.0rem, 12vw, 5.0rem);
-                letter-spacing: 0.1em;
-            }
+        .token-item strong { color: var(--eth-purple); }
+        .token-item.stable strong { color: var(--money-green); }
+
+        /* --- MATRIX GRID (HOVER INTERACTIONS) --- */
+        .grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem; margin-bottom: 4rem;
         }
+
+        .card {
+            background: var(--glass-bg); border: 1px solid var(--border-base);
+            padding: 2rem; border-radius: 6px; position: relative; overflow: hidden;
+            transition: all 0.2s ease-out; display: flex; flex-direction: column; backdrop-filter: blur(15px);
+            cursor: default; /* Not a link, but interactive */
+        }
+        
+        /* Mirror Laser Effect Base */
+        .card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 6px; padding: 1px; 
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0)); 
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
+        }
+
+        /* --- HOVER STATES (COLOR CODED) --- */
+        
+        /* 1. Purple Cards */
+        .card.hover-purple:hover { 
+            border-color: var(--eth-purple); 
+            box-shadow: 0 0 30px rgba(140, 82, 255, 0.4); 
+            transform: scale(1.02);
+        }
+
+        /* 2. Green Cards */
+        .card.hover-green:hover { 
+            border-color: var(--money-green); 
+            box-shadow: 0 0 30px rgba(0, 255, 157, 0.4); 
+            transform: scale(1.02);
+        }
+
+        /* 3. Red Cards */
+        .card.hover-red:hover { 
+            border-color: var(--alert-red); 
+            box-shadow: 0 0 30px rgba(255, 51, 102, 0.4); 
+            transform: scale(1.02);
+        }
+
+        /* 4. Cyan Cards */
+        .card.hover-cyan:hover { 
+            border-color: var(--ai-cyan); 
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.4); 
+            transform: scale(1.02);
+        }
+
+
+        .card-header { display: flex; align-items: center; gap: 15px; margin-bottom: 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 1rem; z-index: 1; }
+        .card-title { font-family: 'Space Grotesk'; font-size: 1.2rem; font-weight: 700; color: #fff; }
+        .card-desc { font-family: 'Rajdhani'; font-size: 1rem; color: #b0c4de; line-height: 1.5; z-index: 1; }
+
+        /* ANIMATION ICONS (Same as before) */
+        .anim-icon { width: 40px; height: 40px; position: relative; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.3); border-radius: 4px; border: 1px solid rgba(255,255,255,0.1); }
+        .wallet-shape { width: 20px; height: 16px; border: 2px solid var(--eth-purple); border-radius: 2px; position: relative; }
+        .coin { width: 6px; height: 6px; background: var(--money-green); border-radius: 50%; position: absolute; top: -4px; right: -4px; animation: drop-coin 1.5s infinite; }
+        @keyframes drop-coin { 0% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(10px); opacity: 0; } }
+        .error-code { font-family: 'JetBrains Mono'; font-size: 10px; color: var(--alert-red); animation: blink-fast 0.5s infinite alternate; }
+        @keyframes blink-fast { from { opacity: 1; } to { opacity: 0.5; } }
+        .chart-line { width: 24px; height: 16px; border-left: 2px solid var(--money-green); border-bottom: 2px solid var(--money-green); position: relative; }
+        .bar { position: absolute; bottom: 0; width: 4px; background: #fff; animation: grow 1s infinite alternate; }
+        .b1 { left: 2px; height: 40%; } .b2 { left: 8px; height: 80%; animation-delay: 0.2s; } .b3 { left: 14px; height: 60%; animation-delay: 0.4s; }
+        @keyframes grow { from { transform: scaleY(0.5); transform-origin: bottom; } to { transform: scaleY(1); transform-origin: bottom; } }
+        .vote-circle { width: 20px; height: 20px; border: 2px solid var(--ai-cyan); border-radius: 50%; border-top-color: transparent; animation: spin 2s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .contract-doc { width: 16px; height: 22px; border: 2px solid #fff; position: relative; overflow: hidden; }
+        .scan-line { width: 100%; height: 2px; background: var(--ai-cyan); position: absolute; top: 0; animation: scan 1.5s infinite linear; }
+        @keyframes scan { 0% { top: 0; } 100% { top: 100%; } }
+        .gem { width: 16px; height: 16px; background: var(--eth-purple); transform: rotate(45deg); animation: pulse-gem 2s infinite; }
+        @keyframes pulse-gem { 0% { transform: rotate(45deg) scale(0.8); opacity: 0.7; } 50% { transform: rotate(45deg) scale(1.1); opacity: 1; box-shadow: 0 0 10px var(--eth-purple); } 100% { transform: rotate(45deg) scale(0.8); opacity: 0.7; } }
+
+
+        /* --- PRICING SECTION --- */
+        .pricing-wrapper { display: grid; grid-template-columns: 1fr; gap: 2rem; margin-bottom: 3rem; }
+        @media (min-width: 900px) { .pricing-wrapper { grid-template-columns: 1fr 1.2fr 1fr; } }
+
+        .price-card {
+            background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); padding: 2rem;
+            text-align: center; border-radius: 8px; display: flex; flex-direction: column; justify-content: center; transition: 0.3s;
+        }
+        .price-card:hover { background: rgba(20,20,30,0.8); border-color: #fff; }
+
+        .bundle-card {
+            background: linear-gradient(135deg, rgba(140, 82, 255, 0.1), rgba(0, 243, 255, 0.1));
+            border: 1px solid var(--ai-cyan); box-shadow: 0 0 30px rgba(0, 243, 255, 0.05); transform: scale(1.05); z-index: 2;
+        }
+
+        .domain-name { font-family: 'Space Grotesk'; font-size: 1.5rem; color: #fff; margin-bottom: 0.5rem; }
+        .price-val { font-family: 'JetBrains Mono'; font-size: 2rem; font-weight: 700; margin: 1rem 0; color: #fff; }
+        .old-price { text-decoration: line-through; color: #666; font-size: 1.2rem; display: block; margin-bottom: 5px; }
+        
+        .financing-info { font-family: 'Rajdhani'; font-size: 0.9rem; color: var(--money-green); margin-bottom: 1.5rem; display: block; }
+        
+        .btn { padding: 1rem; text-decoration: none; text-transform: uppercase; font-weight: 700; font-family: 'JetBrains Mono'; letter-spacing: 1px; transition: 0.3s; border: 1px solid; display: block; margin-top: auto; }
+        .btn-single { color: #888; border-color: #444; }
+        .btn-single:hover { color: #fff; border-color: #fff; background: rgba(255,255,255,0.05); }
+        .btn-bundle { background: var(--ai-cyan); color: #000; border-color: var(--ai-cyan); cursor: pointer; }
+        .btn-bundle:hover { background: #fff; color: #000; box-shadow: 0 0 20px var(--ai-cyan); }
+
+        footer { text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; color: #666; font-size: 0.8rem; }
+        .email-copy { cursor: pointer; border-bottom: 1px dotted #666; transition: 0.3s; }
+        .email-copy:hover { color: var(--ai-cyan); border-color: var(--ai-cyan); }
+
     </style>
 </head>
 <body>
-    <div class="light-effect"></div>
-    <div class="container">
-        <h1><span class="domain">bot0x.ai</span></h1>
-        <p>This domain is reserved.<br>Future project consideration.</p>
-        
-        <!-- 低调中性免责声明 -->
-        <div class="note-section">
-            <div class="note-text">
-                This domain is reserved for future development and is not associated with any third party.
-            </div>
-        </div>
-        
-        <!-- 联系方式 -->
-        <div class="contact-section">
-            <a href="#" class="email-link" aria-label="Send email">
-                <span id="email-display">joshua369x@gmail.com</span>
-            </a>
-            <div class="contact-note">
-                For strategic inquiries only.
-            </div>
-        </div>
-    </div>
 
-    <div class="footer">
-        © <span id="currentYear"></span> bot0x.ai — All rights reserved.
+    <canvas id="hash-canvas"></canvas>
+    <div class="grid-net"></div>
+
+    <div class="container">
+        
+        <header>
+            <div class="logo-lockup">
+                <div class="logo-text">
+                    <span class="bot-part">bot</span><span class="x-part">0x</span>
+                </div>
+            </div>
+            <p class="core-statement">"AI's native currency lies hidden within Stablecoins and Blockchain."</p>
+        </header>
+
+        <div class="thesis">
+            <p>
+                In the Web2 era, humans transacted with banks. In the Age of AI, <span class="highlight">Autonomous Agents</span> transact with Smart Contracts.
+                <br><br>
+                <strong>Bot0x</strong> is the interface where AI Robotics meets the <span style="color:var(--eth-purple); font-weight:bold;">0x Protocol</span>. 
+                It is the infrastructure for the machine economy.
+            </p>
+        </div>
+
+        <!-- TOKEN STRIP -->
+        <div class="token-strip">
+            <div class="token-item"><strong>ETH</strong> (Gas)</div>
+            <div class="token-item"><strong>ZRX</strong> (Protocol)</div>
+            <div class="token-item stable"><strong>USDC</strong> (Stable)</div>
+            <div class="token-item stable"><strong>DAI</strong> (Decentralized)</div>
+            <div class="token-item"><strong>SOL</strong> (Speed)</div>
+        </div>
+
+        <!-- 6 SECTOR MATRIX (HOVER EFFECTS) -->
+        <div class="grid">
+            
+            <!-- 1. Agent Wallets (PURPLE) -->
+            <div class="card hover-purple">
+                <div class="card-header">
+                    <div class="anim-icon"><div class="wallet-shape"><div class="coin"></div></div></div>
+                    <div class="card-title">Autonomous Wallets</div>
+                </div>
+                <p class="card-desc">Crypto wallets controlled by AI Agents (MPC/Account Abstraction), allowing robots to hold assets.</p>
+            </div>
+
+            <!-- 2. AI DeFi (GREEN) -->
+            <div class="card hover-green">
+                <div class="card-header">
+                    <div class="anim-icon"><div class="chart-line"><div class="bar b1"></div><div class="bar b2"></div><div class="bar b3"></div></div></div>
+                    <div class="card-title" style="color:var(--money-green)">AI DeFi / AgentFi</div>
+                </div>
+                <p class="card-desc"><strong>Yield Automation.</strong> AI Agents autonomously moving liquidity between protocols to maximize yield 24/7.</p>
+            </div>
+
+            <!-- 3. Protocol X402 (RED) -->
+            <div class="card hover-red">
+                <div class="card-header">
+                    <div class="anim-icon"><div class="error-code">X402</div></div>
+                    <div class="card-title" style="color:var(--alert-red)">Protocol X402</div>
+                </div>
+                <p class="card-desc">The "Payment Required" standard for the AI web. M2M micropayments for API access and compute.</p>
+            </div>
+
+            <!-- 4. DAO Governance (CYAN) -->
+            <div class="card hover-cyan">
+                <div class="card-header">
+                    <div class="anim-icon"><div class="vote-circle"></div></div>
+                    <div class="card-title">Bot Governance</div>
+                </div>
+                <p class="card-desc">AI Delegates participating in DAO voting, analyzing proposals instantly based on utility functions.</p>
+            </div>
+
+            <!-- 5. Security (CYAN) -->
+            <div class="card hover-cyan">
+                <div class="card-header">
+                    <div class="anim-icon"><div class="contract-doc"><div class="scan-line"></div></div></div>
+                    <div class="card-title">Sentinel AI</div>
+                </div>
+                <p class="card-desc">Real-time security bots scanning the Mempool and Smart Contracts for exploits before execution.</p>
+            </div>
+
+            <!-- 6. Generative Assets (PURPLE) -->
+            <div class="card hover-purple">
+                <div class="card-header">
+                    <div class="anim-icon"><div class="gem"></div></div>
+                    <div class="card-title">Generative Assets</div>
+                </div>
+                <p class="card-desc">AI generating and minting synthetic assets and NFTs directly on-chain, creating value from algorithms.</p>
+            </div>
+
+        </div>
+
+        <!-- PRICING SECTION -->
+        <div class="pricing-wrapper">
+            
+            <div class="price-card">
+                <div class="domain-name">bot0x.com</div>
+                <div style="font-size:0.8rem; color:#666;">COMMERCIAL LAYER</div>
+                <div class="price-val">$42,000</div>
+                <span class="financing-info">12-Month Financing (Contact Owner)</span>
+                <a href="https://www.afternic.com/domain/bot0x.com" target="_blank" class="btn btn-single">Buy .COM</a>
+            </div>
+
+            <div class="price-card bundle-card">
+                <div style="color:var(--ai-cyan); font-weight:700; letter-spacing:1px; margin-bottom:1rem;">👑 AGENT ECONOMY BUNDLE</div>
+                <div class="domain-name">.COM + .AI</div>
+                <div class="price-val">
+                    <span class="old-price">$84,000</span>
+                    $70,000
+                </div>
+                <span class="financing-info" style="color:#000;">12-Month Financing Available</span>
+                <a href="javascript:void(0)" onclick="copyBundleEmail(this)" class="btn btn-bundle">Acquire Bundle</a>
+            </div>
+
+            <div class="price-card">
+                <div class="domain-name">bot0x.ai</div>
+                <div style="font-size:0.8rem; color:#666;">INTELLIGENCE LAYER</div>
+                <div class="price-val">$42,000</div>
+                <span class="financing-info">12-Month Financing (Contact Owner)</span>
+                <a href="https://www.afternic.com/domain/bot0x.ai" target="_blank" class="btn btn-single">Buy .AI</a>
+            </div>
+
+        </div>
+
+        <footer>
+            <p>
+                CONTACT BROKER: <span class="email-copy" onclick="copyBundleEmail(this)">joshua369x@gmail.com</span>
+            </p>
+            <p style="margin-top:1rem; opacity:0.5;">
+                &copy; 2026 Bot0x Protocols. The Future of Machine Finance.
+            </p>
+        </footer>
+
     </div>
 
     <script>
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-        const email = 'joshua369x' + '@' + 'gmail.com';
-        const subject = '?subject=Inquiry: bot0x.ai';
-        const mailto = 'mailto:' + email + subject;
-        document.querySelector('.email-link').href = mailto;
-        document.getElementById('email-display').textContent = email;
+        /* --- BUNDLE EMAIL COPY --- */
+        function copyBundleEmail(btn) {
+            navigator.clipboard.writeText("joshua369x@gmail.com");
+            
+            if(btn.classList.contains('btn-bundle')) {
+                const originalText = btn.innerText;
+                btn.innerText = "EMAIL COPIED!";
+                btn.style.background = "#fff";
+                btn.style.color = "#000";
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.style.background = "var(--ai-cyan)";
+                    btn.style.color = "#000";
+                }, 2000);
+            } else {
+                const originalText = btn.innerText;
+                btn.innerText = "[ COPIED ]";
+                btn.style.color = "#00ff9d";
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.style.color = "#666";
+                }, 2000);
+            }
+        }
+
+        /* --- BACKGROUND --- */
+        const canvas = document.getElementById('hash-canvas');
+        const ctx = canvas.getContext('2d');
+        let width, height;
+
+        function resize() { width = window.innerWidth; height = window.innerHeight; canvas.width = width; canvas.height = height; }
+        window.addEventListener('resize', resize); resize();
+
+        const chars = "0x123456789ABCDEF";
+        const columns = Math.floor(width / 25);
+        const drops = [];
+        for(let i=0; i<columns; i++) drops[i] = Math.random() * -100;
+
+        function draw() {
+            ctx.fillStyle = "rgba(2, 2, 4, 0.1)"; ctx.fillRect(0, 0, width, height);
+            ctx.font = "14px 'JetBrains Mono'";
+            for(let i=0; i<drops.length; i++) {
+                const text = chars.charAt(Math.floor(Math.random()*chars.length));
+                const rand = Math.random();
+                if(rand > 0.98) ctx.fillStyle = "#00ff9d"; 
+                else if(rand > 0.95) ctx.fillStyle = "#00f3ff"; 
+                else ctx.fillStyle = "#4a2b8a"; 
+                ctx.fillText(text, i*25, drops[i]*25);
+                if(drops[i]*25 > height && Math.random() > 0.975) drops[i] = 0;
+                drops[i]++;
+            }
+        }
+        setInterval(draw, 50);
     </script>
 </body>
 </html>
