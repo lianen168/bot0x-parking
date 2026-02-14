@@ -22,9 +22,7 @@
             --glass-bg: rgba(15, 15, 25, 0.7);
             --border-base: rgba(255, 255, 255, 0.1);
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         body {
             background-color: var(--bg-deep);
             color: #fff;
@@ -34,7 +32,6 @@
             display: flex;
             flex-direction: column;
         }
-
         /* --- BACKGROUND ENGINE --- */
         #hash-canvas {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -46,15 +43,12 @@
             background-size: 50px 50px; z-index: -1;
             mask-image: radial-gradient(circle at center, black 40%, transparent 85%);
         }
-
         .container {
             max-width: 1200px; margin: 0 auto; padding: 3rem 1.5rem;
             flex-grow: 1; position: relative; z-index: 10;
         }
-
         /* --- HEADER --- */
         header { text-align: center; margin: 4rem 0 2rem 0; }
-
         .logo-lockup {
             display: inline-flex; align-items: center; justify-content: center;
             background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.1);
@@ -67,14 +61,12 @@
             transform: skewX(-25deg); animation: shine-logo 6s infinite;
         }
         @keyframes shine-logo { 0% { left: -100%; } 20% { left: 200%; } 100% { left: 200%; } }
-
         .logo-text {
             font-family: 'Space Grotesk', sans-serif; font-weight: 700;
             font-size: clamp(3rem, 6vw, 5rem); letter-spacing: -2px; line-height: 1;
         }
         .bot-part { color: #fff; text-shadow: 0 0 25px rgba(255,255,255,0.2); }
         .x-part { color: var(--eth-purple); font-family: 'JetBrains Mono'; font-weight: 400; }
-
         .core-statement {
             font-family: 'Space Grotesk', sans-serif;
             font-size: 1.3rem; margin-bottom: 2rem;
@@ -82,13 +74,11 @@
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             font-weight: 600;
         }
-
         .thesis {
             max-width: 800px; margin: 0 auto 3rem auto; text-align: center;
             font-size: 1.1rem; line-height: 1.6; color: #ccc;
         }
         .highlight { color: var(--ai-cyan); font-weight: 600; }
-
         /* --- TOKEN TICKER STRIP --- */
         .token-strip {
             display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem;
@@ -99,13 +89,11 @@
         }
         .token-item strong { color: var(--eth-purple); }
         .token-item.stable strong { color: var(--money-green); }
-
         /* --- MATRIX GRID (HOVER INTERACTIONS) --- */
         .grid {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 1.5rem; margin-bottom: 4rem;
         }
-
         .card {
             background: var(--glass-bg); border: 1px solid var(--border-base);
             padding: 2rem; border-radius: 6px; position: relative; overflow: hidden;
@@ -121,7 +109,6 @@
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
         }
-
         /* --- HOVER STATES (COLOR CODED) --- */
         
         /* 1. Purple Cards */
@@ -130,33 +117,27 @@
             box-shadow: 0 0 30px rgba(140, 82, 255, 0.4); 
             transform: scale(1.02);
         }
-
         /* 2. Green Cards */
         .card.hover-green:hover { 
             border-color: var(--money-green); 
             box-shadow: 0 0 30px rgba(0, 255, 157, 0.4); 
             transform: scale(1.02);
         }
-
         /* 3. Red Cards */
         .card.hover-red:hover { 
             border-color: var(--alert-red); 
             box-shadow: 0 0 30px rgba(255, 51, 102, 0.4); 
             transform: scale(1.02);
         }
-
         /* 4. Cyan Cards */
         .card.hover-cyan:hover { 
             border-color: var(--ai-cyan); 
             box-shadow: 0 0 30px rgba(0, 243, 255, 0.4); 
             transform: scale(1.02);
         }
-
-
         .card-header { display: flex; align-items: center; gap: 15px; margin-bottom: 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 1rem; z-index: 1; }
         .card-title { font-family: 'Space Grotesk'; font-size: 1.2rem; font-weight: 700; color: #fff; }
         .card-desc { font-family: 'Rajdhani'; font-size: 1rem; color: #b0c4de; line-height: 1.5; z-index: 1; }
-
         /* ANIMATION ICONS (Same as before) */
         .anim-icon { width: 40px; height: 40px; position: relative; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.3); border-radius: 4px; border: 1px solid rgba(255,255,255,0.1); }
         .wallet-shape { width: 20px; height: 16px; border: 2px solid var(--eth-purple); border-radius: 2px; position: relative; }
@@ -176,22 +157,18 @@
         .gem { width: 16px; height: 16px; background: var(--eth-purple); transform: rotate(45deg); animation: pulse-gem 2s infinite; }
         @keyframes pulse-gem { 0% { transform: rotate(45deg) scale(0.8); opacity: 0.7; } 50% { transform: rotate(45deg) scale(1.1); opacity: 1; box-shadow: 0 0 10px var(--eth-purple); } 100% { transform: rotate(45deg) scale(0.8); opacity: 0.7; } }
 
-
         /* --- PRICING SECTION --- */
         .pricing-wrapper { display: grid; grid-template-columns: 1fr; gap: 2rem; margin-bottom: 3rem; }
         @media (min-width: 900px) { .pricing-wrapper { grid-template-columns: 1fr 1.2fr 1fr; } }
-
         .price-card {
             background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); padding: 2rem;
             text-align: center; border-radius: 8px; display: flex; flex-direction: column; justify-content: center; transition: 0.3s;
         }
         .price-card:hover { background: rgba(20,20,30,0.8); border-color: #fff; }
-
         .bundle-card {
             background: linear-gradient(135deg, rgba(140, 82, 255, 0.1), rgba(0, 243, 255, 0.1));
             border: 1px solid var(--ai-cyan); box-shadow: 0 0 30px rgba(0, 243, 255, 0.05); transform: scale(1.05); z-index: 2;
         }
-
         .domain-name { font-family: 'Space Grotesk'; font-size: 1.5rem; color: #fff; margin-bottom: 0.5rem; }
         .price-val { font-family: 'JetBrains Mono'; font-size: 2rem; font-weight: 700; margin: 1rem 0; color: #fff; }
         .old-price { text-decoration: line-through; color: #666; font-size: 1.2rem; display: block; margin-bottom: 5px; }
@@ -204,17 +181,65 @@
         .btn-bundle { background: var(--ai-cyan); color: #000; border-color: var(--ai-cyan); cursor: pointer; }
         .btn-bundle:hover { background: #fff; color: #000; box-shadow: 0 0 20px var(--ai-cyan); }
 
+        /* --- OFFER FORM SECTION (NEW) --- */
+        .offer-container {
+            max-width: 600px;
+            margin: 0 auto 4rem auto;
+            background: rgba(0,0,0,0.6);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .offer-container::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--ai-cyan), transparent);
+        }
+        .offer-title {
+            font-family: 'Space Grotesk'; font-size: 1.5rem; margin-bottom: 1rem;
+            color: #fff;
+        }
+        .offer-form {
+            display: flex; flex-direction: column; gap: 1rem; text-align: left;
+        }
+        .form-input, .form-select {
+            width: 100%; padding: 1rem; background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.2); border-radius: 4px;
+            color: #fff; font-family: 'JetBrains Mono'; outline: none;
+            transition: 0.3s;
+        }
+        .form-select option { background: #000; color: #fff; }
+        .form-input:focus, .form-select:focus { 
+            border-color: var(--ai-cyan); 
+            box-shadow: 0 0 10px rgba(0, 243, 255, 0.1); 
+            background: rgba(255,255,255,0.08);
+        }
+        .btn-submit {
+            background: var(--eth-purple); color: #fff; border: none;
+            cursor: pointer; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 1px; padding: 1rem; font-family: 'JetBrains Mono';
+            margin-top: 0.5rem; transition: 0.3s;
+        }
+        .btn-submit:hover { background: #a26eff; box-shadow: 0 0 20px rgba(140, 82, 255, 0.4); transform: translateY(-1px); }
+        .btn-submit:active { transform: translateY(0); }
+        .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        .status-msg { margin-top: 1rem; font-family: 'JetBrains Mono'; font-size: 0.8rem; min-height: 1.2em; text-align: center; }
+        .success-msg { color: var(--money-green); text-shadow: 0 0 5px rgba(0, 255, 157, 0.3); }
+        .error-msg { color: var(--alert-red); text-shadow: 0 0 5px rgba(255, 51, 102, 0.3); }
+
         footer { text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; color: #666; font-size: 0.8rem; }
         .email-copy { cursor: pointer; border-bottom: 1px dotted #666; transition: 0.3s; }
         .email-copy:hover { color: var(--ai-cyan); border-color: var(--ai-cyan); }
-
     </style>
 </head>
 <body>
-
     <canvas id="hash-canvas"></canvas>
     <div class="grid-net"></div>
-
     <div class="container">
         
         <header>
@@ -300,7 +325,6 @@
                 </div>
                 <p class="card-desc">AI generating and minting synthetic assets and NFTs directly on-chain, creating value from algorithms.</p>
             </div>
-
         </div>
 
         <!-- PRICING SECTION -->
@@ -332,7 +356,41 @@
                 <span class="financing-info">12-Month Financing (Contact Owner)</span>
                 <a href="https://www.afternic.com/domain/bot0x.ai" target="_blank" class="btn btn-single">Buy .AI</a>
             </div>
+        </div>
 
+        <!-- COUNTER OFFER SECTION (NEW) -->
+        <div class="offer-container">
+            <h3 class="offer-title">Make a Counter Offer</h3>
+            <p style="color:#888; margin-bottom:1.5rem; font-size:0.9rem;">
+                Enter your best offer below. Serious proposals are reviewed within 24 hours.
+            </p>
+            
+            <form id="offerForm" class="offer-form">
+                <!-- Hidden Configuration for FormSubmit -->
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_subject" value="New Counter Offer for Bot0x">
+
+                <!-- Asset Selection -->
+                <select name="asset" class="form-select" required>
+                    <option value="" disabled selected>Select Asset of Interest...</option>
+                    <option value="Bot0x.com (.COM Only)">Bot0x.com (.COM Only)</option>
+                    <option value="Bot0x.ai (.AI Only)">Bot0x.ai (.AI Only)</option>
+                    <option value="Bundle (.COM + .AI)">Bundle (.COM + .AI)</option>
+                </select>
+
+                <!-- Offer Amount -->
+                <input type="number" name="offer_amount" class="form-input" placeholder="Offer Amount (USD)" min="1000" required>
+
+                <!-- Email -->
+                <input type="email" name="email" class="form-input" placeholder="Your Email Address" required>
+
+                <!-- Message (Optional) -->
+                <textarea name="message" class="form-input" rows="2" placeholder="Additional Notes / Financing Request (Optional)"></textarea>
+
+                <button type="submit" class="btn btn-submit">Transmit Offer</button>
+            </form>
+            <div id="formStatus" class="status-msg"></div>
         </div>
 
         <footer>
@@ -343,7 +401,6 @@
                 &copy; 2026 Bot0x Protocols. The Future of Machine Finance.
             </p>
         </footer>
-
     </div>
 
     <script>
@@ -372,11 +429,62 @@
             }
         }
 
+        /* --- AJAX FORM SUBMISSION (NEW) --- */
+        const offerForm = document.getElementById('offerForm');
+        const statusDiv = document.getElementById('formStatus');
+
+        offerForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const btn = offerForm.querySelector('.btn-submit');
+            const originalBtnText = btn.innerText;
+            
+            // Loading State
+            btn.innerText = "Transmitting to Network...";
+            btn.style.opacity = "0.7";
+            btn.disabled = true;
+            statusDiv.innerText = "";
+            statusDiv.className = "status-msg";
+
+            const formData = new FormData(offerForm);
+            const data = Object.fromEntries(formData.entries());
+
+            // FormSubmit AJAX Config
+            fetch("https://formsubmit.co/ajax/joshua369x@gmail.com", {
+                method: "POST",
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Success
+                statusDiv.innerHTML = "Offer transmitted successfully. We will contact you shortly.";
+                statusDiv.className = "status-msg success-msg";
+                offerForm.reset();
+            })
+            .catch(error => {
+                // Error
+                statusDiv.innerHTML = "Transmission failed. Please email joshua369x@gmail.com directly.";
+                statusDiv.className = "status-msg error-msg";
+                console.error('Error:', error);
+            })
+            .finally(() => {
+                // Reset Button
+                setTimeout(() => {
+                    btn.innerText = originalBtnText;
+                    btn.style.opacity = "1";
+                    btn.disabled = false;
+                }, 2000);
+            });
+        });
+
         /* --- BACKGROUND --- */
         const canvas = document.getElementById('hash-canvas');
         const ctx = canvas.getContext('2d');
         let width, height;
-
         function resize() { width = window.innerWidth; height = window.innerHeight; canvas.width = width; canvas.height = height; }
         window.addEventListener('resize', resize); resize();
 
