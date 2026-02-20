@@ -4,15 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bot0x | The Financial Layer of AI</title>
+    <meta name="description" content="Acquire Bot0x.com & Bot0x.ai - The interface where AI robotics meets the 0x Protocol, defining the infrastructure for the machine economy.">
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Rajdhani:wght@300;500;600;700&family=Space+Grotesk:wght@300;600;700&display=swap" rel="stylesheet">
+
+    <!-- SEO: JSON-LD Structured Data for Product -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Bot0x Domain Portfolio",
+      "description": "The premium digital asset portfolio for the AI-driven machine economy, featuring Bot0x.com and Bot0x.ai.",
+      "sku": "BOT0X-BUNDLE-2026",
+      "brand": {
+        "@type": "Brand",
+        "name": "Bot0x"
+      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Agent Economy Bundle (.com + .ai)",
+          "price": "70000",
+          "priceCurrency": "USD",
+          "description": "Acquire both Bot0x.com and Bot0x.ai for complete brand dominance in the emerging AgentFi sector. Includes a $14,000 discount.",
+          "availability": "https://schema.org/InStock",
+          "seller": {
+            "@type": "Organization",
+            "name": "Bot0x Protocols"
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Bot0x.com",
+          "price": "42000",
+          "priceCurrency": "USD",
+          "description": "The commercial layer domain, ideal for enterprise applications and Web2 integration.",
+          "url": "https://www.afternic.com/domain/bot0x.com",
+          "availability": "https://schema.org/InStock"
+        },
+        {
+          "@type": "Offer",
+          "name": "Bot0x.ai",
+          "price": "42000",
+          "priceCurrency": "USD",
+          "description": "The intelligence layer domain, perfect for native AI protocols and the future of machine finance.",
+          "url": "https://www.afternic.com/domain/bot0x.ai",
+          "availability": "https://schema.org/InStock"
+        }
+      ]
+    }
+    </script>
     
     <style>
         :root {
             --bg-deep: #020204;
-            
             /* Bot0x Palette */
             --eth-purple: #8c52ff;    /* Layer 1 / 0x */
             --ai-cyan: #00f3ff;       /* Intelligence */
@@ -138,7 +186,7 @@
         .card-header { display: flex; align-items: center; gap: 15px; margin-bottom: 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 1rem; z-index: 1; }
         .card-title { font-family: 'Space Grotesk'; font-size: 1.2rem; font-weight: 700; color: #fff; }
         .card-desc { font-family: 'Rajdhani'; font-size: 1rem; color: #b0c4de; line-height: 1.5; z-index: 1; }
-        /* ANIMATION ICONS (Same as before) */
+        /* ANIMATION ICONS */
         .anim-icon { width: 40px; height: 40px; position: relative; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.3); border-radius: 4px; border: 1px solid rgba(255,255,255,0.1); }
         .wallet-shape { width: 20px; height: 16px; border: 2px solid var(--eth-purple); border-radius: 2px; position: relative; }
         .coin { width: 6px; height: 6px; background: var(--money-green); border-radius: 50%; position: absolute; top: -4px; right: -4px; animation: drop-coin 1.5s infinite; }
@@ -156,7 +204,6 @@
         @keyframes scan { 0% { top: 0; } 100% { top: 100%; } }
         .gem { width: 16px; height: 16px; background: var(--eth-purple); transform: rotate(45deg); animation: pulse-gem 2s infinite; }
         @keyframes pulse-gem { 0% { transform: rotate(45deg) scale(0.8); opacity: 0.7; } 50% { transform: rotate(45deg) scale(1.1); opacity: 1; box-shadow: 0 0 10px var(--eth-purple); } 100% { transform: rotate(45deg) scale(0.8); opacity: 0.7; } }
-
         /* --- PRICING SECTION --- */
         .pricing-wrapper { display: grid; grid-template-columns: 1fr; gap: 2rem; margin-bottom: 3rem; }
         @media (min-width: 900px) { .pricing-wrapper { grid-template-columns: 1fr 1.2fr 1fr; } }
@@ -172,16 +219,13 @@
         .domain-name { font-family: 'Space Grotesk'; font-size: 1.5rem; color: #fff; margin-bottom: 0.5rem; }
         .price-val { font-family: 'JetBrains Mono'; font-size: 2rem; font-weight: 700; margin: 1rem 0; color: #fff; }
         .old-price { text-decoration: line-through; color: #666; font-size: 1.2rem; display: block; margin-bottom: 5px; }
-        
         .financing-info { font-family: 'Rajdhani'; font-size: 0.9rem; color: var(--money-green); margin-bottom: 1.5rem; display: block; }
-        
         .btn { padding: 1rem; text-decoration: none; text-transform: uppercase; font-weight: 700; font-family: 'JetBrains Mono'; letter-spacing: 1px; transition: 0.3s; border: 1px solid; display: block; margin-top: auto; }
         .btn-single { color: #888; border-color: #444; }
         .btn-single:hover { color: #fff; border-color: #fff; background: rgba(255,255,255,0.05); }
         .btn-bundle { background: var(--ai-cyan); color: #000; border-color: var(--ai-cyan); cursor: pointer; }
         .btn-bundle:hover { background: #fff; color: #000; box-shadow: 0 0 20px var(--ai-cyan); }
-
-        /* --- OFFER FORM SECTION (NEW) --- */
+        /* --- OFFER FORM SECTION --- */
         .offer-container {
             max-width: 600px;
             margin: 0 auto 4rem auto;
@@ -224,15 +268,13 @@
             letter-spacing: 1px; padding: 1rem; font-family: 'JetBrains Mono';
             margin-top: 0.5rem; transition: 0.3s;
         }
-        .btn-submit:hover { background: #a26eff; box-shadow: 0 0 20px rgba(140, 82, 255, 0.4); transform: translateY(-1px); }
-        .btn-submit:active { transform: translateY(0); }
+        .btn-submit:hover:not(:disabled) { background: #a26eff; box-shadow: 0 0 20px rgba(140, 82, 255, 0.4); transform: translateY(-1px); }
         .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+        .status-msg { margin-top: 1rem; padding: 10px; border-left: 3px solid; font-family: 'JetBrains Mono'; font-size: 0.8rem; text-align: left; display: none; }
+        .success-msg { color: var(--money-green); border-color: var(--money-green); background-color: rgba(0, 255, 157, 0.05); }
+        .error-msg { color: var(--alert-red); border-color: var(--alert-red); background-color: rgba(255, 51, 102, 0.05); }
 
-        .status-msg { margin-top: 1rem; font-family: 'JetBrains Mono'; font-size: 0.8rem; min-height: 1.2em; text-align: center; }
-        .success-msg { color: var(--money-green); text-shadow: 0 0 5px rgba(0, 255, 157, 0.3); }
-        .error-msg { color: var(--alert-red); text-shadow: 0 0 5px rgba(255, 51, 102, 0.3); }
-
-        footer { text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; color: #666; font-size: 0.8rem; }
+        footer { text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding: 2rem 0; color: #666; font-size: 0.8rem; }
         .email-copy { cursor: pointer; border-bottom: 1px dotted #666; transition: 0.3s; }
         .email-copy:hover { color: var(--ai-cyan); border-color: var(--ai-cyan); }
     </style>
@@ -240,254 +282,208 @@
 <body>
     <canvas id="hash-canvas"></canvas>
     <div class="grid-net"></div>
-    <div class="container">
+    
+    <!-- SEO: Main content wrapper -->
+    <main class="container">
         
         <header>
             <div class="logo-lockup">
-                <div class="logo-text">
+                <h1 class="logo-text">
                     <span class="bot-part">bot</span><span class="x-part">0x</span>
-                </div>
+                </h1>
             </div>
             <p class="core-statement">"AI's native currency lies hidden within Stablecoins and Blockchain."</p>
         </header>
-
-        <div class="thesis">
+        
+        <section class="thesis">
             <p>
                 In the Web2 era, humans transacted with banks. In the Age of AI, <span class="highlight">Autonomous Agents</span> transact with Smart Contracts.
                 <br><br>
                 <strong>Bot0x</strong> is the interface where AI Robotics meets the <span style="color:var(--eth-purple); font-weight:bold;">0x Protocol</span>. 
                 It is the infrastructure for the machine economy.
             </p>
-        </div>
+        </section>
 
-        <!-- TOKEN STRIP -->
-        <div class="token-strip">
+        <section class="token-strip">
             <div class="token-item"><strong>ETH</strong> (Gas)</div>
             <div class="token-item"><strong>ZRX</strong> (Protocol)</div>
             <div class="token-item stable"><strong>USDC</strong> (Stable)</div>
             <div class="token-item stable"><strong>DAI</strong> (Decentralized)</div>
             <div class="token-item"><strong>SOL</strong> (Speed)</div>
-        </div>
+        </section>
 
-        <!-- 6 SECTOR MATRIX (HOVER EFFECTS) -->
-        <div class="grid">
-            
-            <!-- 1. Agent Wallets (PURPLE) -->
-            <div class="card hover-purple">
-                <div class="card-header">
-                    <div class="anim-icon"><div class="wallet-shape"><div class="coin"></div></div></div>
-                    <div class="card-title">Autonomous Wallets</div>
-                </div>
-                <p class="card-desc">Crypto wallets controlled by AI Agents (MPC/Account Abstraction), allowing robots to hold assets.</p>
-            </div>
+        <section class="grid">
+            <!-- Cards 1-6 (Content Unchanged) -->
+            <div class="card hover-purple"><div class="card-header"><div class="anim-icon"><div class="wallet-shape"><div class="coin"></div></div></div><div class="card-title">Autonomous Wallets</div></div><p class="card-desc">Crypto wallets controlled by AI Agents (MPC/Account Abstraction), allowing robots to hold assets.</p></div>
+            <div class="card hover-green"><div class="card-header"><div class="anim-icon"><div class="chart-line"><div class="bar b1"></div><div class="bar b2"></div><div class="bar b3"></div></div></div><div class="card-title" style="color:var(--money-green)">AI DeFi / AgentFi</div></div><p class="card-desc"><strong>Yield Automation.</strong> AI Agents autonomously moving liquidity between protocols to maximize yield 24/7.</p></div>
+            <div class="card hover-red"><div class="card-header"><div class="anim-icon"><div class="error-code">X402</div></div><div class="card-title" style="color:var(--alert-red)">Protocol X402</div></div><p class="card-desc">The "Payment Required" standard for the AI web. M2M micropayments for API access and compute.</p></div>
+            <div class="card hover-cyan"><div class="card-header"><div class="anim-icon"><div class="vote-circle"></div></div><div class="card-title">Bot Governance</div></div><p class="card-desc">AI Delegates participating in DAO voting, analyzing proposals instantly based on utility functions.</p></div>
+            <div class="card hover-cyan"><div class="card-header"><div class="anim-icon"><div class="contract-doc"><div class="scan-line"></div></div></div><div class="card-title">Sentinel AI</div></div><p class="card-desc">Real-time security bots scanning the Mempool and Smart Contracts for exploits before execution.</p></div>
+            <div class="card hover-purple"><div class="card-header"><div class="anim-icon"><div class="gem"></div></div><div class="card-title">Generative Assets</div></div><p class="card-desc">AI generating and minting synthetic assets and NFTs directly on-chain, creating value from algorithms.</p></div>
+        </section>
 
-            <!-- 2. AI DeFi (GREEN) -->
-            <div class="card hover-green">
-                <div class="card-header">
-                    <div class="anim-icon"><div class="chart-line"><div class="bar b1"></div><div class="bar b2"></div><div class="bar b3"></div></div></div>
-                    <div class="card-title" style="color:var(--money-green)">AI DeFi / AgentFi</div>
-                </div>
-                <p class="card-desc"><strong>Yield Automation.</strong> AI Agents autonomously moving liquidity between protocols to maximize yield 24/7.</p>
-            </div>
-
-            <!-- 3. Protocol X402 (RED) -->
-            <div class="card hover-red">
-                <div class="card-header">
-                    <div class="anim-icon"><div class="error-code">X402</div></div>
-                    <div class="card-title" style="color:var(--alert-red)">Protocol X402</div>
-                </div>
-                <p class="card-desc">The "Payment Required" standard for the AI web. M2M micropayments for API access and compute.</p>
-            </div>
-
-            <!-- 4. DAO Governance (CYAN) -->
-            <div class="card hover-cyan">
-                <div class="card-header">
-                    <div class="anim-icon"><div class="vote-circle"></div></div>
-                    <div class="card-title">Bot Governance</div>
-                </div>
-                <p class="card-desc">AI Delegates participating in DAO voting, analyzing proposals instantly based on utility functions.</p>
-            </div>
-
-            <!-- 5. Security (CYAN) -->
-            <div class="card hover-cyan">
-                <div class="card-header">
-                    <div class="anim-icon"><div class="contract-doc"><div class="scan-line"></div></div></div>
-                    <div class="card-title">Sentinel AI</div>
-                </div>
-                <p class="card-desc">Real-time security bots scanning the Mempool and Smart Contracts for exploits before execution.</p>
-            </div>
-
-            <!-- 6. Generative Assets (PURPLE) -->
-            <div class="card hover-purple">
-                <div class="card-header">
-                    <div class="anim-icon"><div class="gem"></div></div>
-                    <div class="card-title">Generative Assets</div>
-                </div>
-                <p class="card-desc">AI generating and minting synthetic assets and NFTs directly on-chain, creating value from algorithms.</p>
-            </div>
-        </div>
-
-        <!-- PRICING SECTION -->
-        <div class="pricing-wrapper">
-            
+        <section class="pricing-wrapper">
             <div class="price-card">
-                <div class="domain-name">bot0x.com</div>
+                <h2 class="domain-name">bot0x.com</h2>
                 <div style="font-size:0.8rem; color:#666;">COMMERCIAL LAYER</div>
                 <div class="price-val">$42,000</div>
                 <span class="financing-info">12-Month Financing (Contact Owner)</span>
                 <a href="https://www.afternic.com/domain/bot0x.com" target="_blank" class="btn btn-single">Buy .COM</a>
             </div>
-
             <div class="price-card bundle-card">
                 <div style="color:var(--ai-cyan); font-weight:700; letter-spacing:1px; margin-bottom:1rem;">👑 AGENT ECONOMY BUNDLE</div>
-                <div class="domain-name">.COM + .AI</div>
+                <h2 class="domain-name">.COM + .AI</h2>
                 <div class="price-val">
                     <span class="old-price">$84,000</span>
                     $70,000
                 </div>
-                <span class="financing-info" style="color:#000;">12-Month Financing Available</span>
+                <span class="financing-info" style="color: var(--ai-cyan);">12-Month Financing Available</span>
                 <a href="javascript:void(0)" onclick="copyBundleEmail(this)" class="btn btn-bundle">Acquire Bundle</a>
             </div>
-
             <div class="price-card">
-                <div class="domain-name">bot0x.ai</div>
+                <h2 class="domain-name">bot0x.ai</h2>
                 <div style="font-size:0.8rem; color:#666;">INTELLIGENCE LAYER</div>
                 <div class="price-val">$42,000</div>
                 <span class="financing-info">12-Month Financing (Contact Owner)</span>
                 <a href="https://www.afternic.com/domain/bot0x.ai" target="_blank" class="btn btn-single">Buy .AI</a>
             </div>
-        </div>
+        </section>
 
-        <!-- COUNTER OFFER SECTION (NEW) -->
-        <div class="offer-container">
+        <!-- /// UPDATED: COUNTER OFFER SECTION /// -->
+        <section class="offer-container">
             <h3 class="offer-title">Make a Counter Offer</h3>
             <p style="color:#888; margin-bottom:1.5rem; font-size:0.9rem;">
                 Enter your best offer below. Serious proposals are reviewed within 24 hours.
             </p>
             
-            <form id="offerForm" class="offer-form">
-                <!-- Hidden Configuration for FormSubmit -->
-                <input type="hidden" name="_template" value="table">
-                <input type="hidden" name="_captcha" value="false">
+            <form id="offerForm" action="https://formspree.io/f/mdalllgn" method="POST" class="offer-form">
                 <input type="hidden" name="_subject" value="New Counter Offer for Bot0x">
-
-                <!-- Asset Selection -->
+                
                 <select name="asset" class="form-select" required>
                     <option value="" disabled selected>Select Asset of Interest...</option>
                     <option value="Bot0x.com (.COM Only)">Bot0x.com (.COM Only)</option>
                     <option value="Bot0x.ai (.AI Only)">Bot0x.ai (.AI Only)</option>
                     <option value="Bundle (.COM + .AI)">Bundle (.COM + .AI)</option>
                 </select>
-
-                <!-- Offer Amount -->
+                
                 <input type="number" name="offer_amount" class="form-input" placeholder="Offer Amount (USD)" min="1000" required>
-
-                <!-- Email -->
                 <input type="email" name="email" class="form-input" placeholder="Your Email Address" required>
-
-                <!-- Message (Optional) -->
                 <textarea name="message" class="form-input" rows="2" placeholder="Additional Notes / Financing Request (Optional)"></textarea>
-
+                
                 <button type="submit" class="btn btn-submit">Transmit Offer</button>
             </form>
             <div id="formStatus" class="status-msg"></div>
-        </div>
+        </section>
+    </main>
 
-        <footer>
-            <p>
-                CONTACT BROKER: <span class="email-copy" onclick="copyBundleEmail(this)">joshua369x@gmail.com</span>
-            </p>
-            <p style="margin-top:1rem; opacity:0.5;">
-                &copy; 2026 Bot0x Protocols. The Future of Machine Finance.
-            </p>
-        </footer>
-    </div>
+    <footer>
+        <p>
+            CONTACT BROKER: <span class="email-copy" onclick="copyBundleEmail(this)">joshua369x@gmail.com</span>
+        </p>
+        <p style="margin-top:1rem; opacity:0.5;">
+            &copy; 2026 Bot0x Protocols. The Future of Machine Finance.
+        </p>
+    </footer>
 
+    <!-- /// UPDATED SCRIPT SECTION /// -->
     <script>
-        /* --- BUNDLE EMAIL COPY --- */
+        /* --- BUNDLE EMAIL COPY (Unchanged) --- */
         function copyBundleEmail(btn) {
             navigator.clipboard.writeText("joshua369x@gmail.com");
+            const originalText = btn.innerText;
+            const isBundleButton = btn.classList.contains('btn-bundle');
             
-            if(btn.classList.contains('btn-bundle')) {
-                const originalText = btn.innerText;
+            if (isBundleButton) {
                 btn.innerText = "EMAIL COPIED!";
                 btn.style.background = "#fff";
                 btn.style.color = "#000";
-                setTimeout(() => {
-                    btn.innerText = originalText;
-                    btn.style.background = "var(--ai-cyan)";
-                    btn.style.color = "#000";
-                }, 2000);
             } else {
-                const originalText = btn.innerText;
                 btn.innerText = "[ COPIED ]";
                 btn.style.color = "#00ff9d";
-                setTimeout(() => {
-                    btn.innerText = originalText;
-                    btn.style.color = "#666";
-                }, 2000);
             }
+
+            setTimeout(() => {
+                btn.innerText = originalText;
+                if (isBundleButton) {
+                    btn.style.background = "var(--ai-cyan)";
+                    btn.style.color = "#000";
+                } else {
+                    btn.style.color = "#666";
+                }
+            }, 2000);
         }
 
-        /* --- AJAX FORM SUBMISSION (NEW) --- */
-        const offerForm = document.getElementById('offerForm');
-        const statusDiv = document.getElementById('formStatus');
+        /* --- NEW AJAX FORM SUBMISSION LOGIC --- */
+        function initOfferForm() {
+            const form = document.getElementById('offerForm');
+            if (!form) return;
 
-        offerForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+            const statusDiv = document.getElementById('formStatus');
+            const submitButton = form.querySelector('.btn-submit');
+            const originalButtonText = submitButton.innerHTML;
             
-            const btn = offerForm.querySelector('.btn-submit');
-            const originalBtnText = btn.innerText;
-            
-            // Loading State
-            btn.innerText = "Transmitting to Network...";
-            btn.style.opacity = "0.7";
-            btn.disabled = true;
-            statusDiv.innerText = "";
-            statusDiv.className = "status-msg";
-
-            const formData = new FormData(offerForm);
-            const data = Object.fromEntries(formData.entries());
-
-            // FormSubmit AJAX Config
-            fetch("https://formsubmit.co/ajax/joshua369x@gmail.com", {
-                method: "POST",
-                headers: { 
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify(data)
-            })
-            .then(response => response.json())
-            .then(data => {
-                // Success
-                statusDiv.innerHTML = "Offer transmitted successfully. We will contact you shortly.";
-                statusDiv.className = "status-msg success-msg";
-                offerForm.reset();
-            })
-            .catch(error => {
-                // Error
-                statusDiv.innerHTML = "Transmission failed. Please email joshua369x@gmail.com directly.";
-                statusDiv.className = "status-msg error-msg";
-                console.error('Error:', error);
-            })
-            .finally(() => {
-                // Reset Button
+            const resetFormState = (delay = 5000) => {
                 setTimeout(() => {
-                    btn.innerText = originalBtnText;
-                    btn.style.opacity = "1";
-                    btn.disabled = false;
-                }, 2000);
-            });
-        });
+                    statusDiv.style.display = "none";
+                    statusDiv.innerHTML = "";
+                    submitButton.innerHTML = originalButtonText;
+                    submitButton.disabled = false;
+                }, delay);
+            };
 
-        /* --- BACKGROUND --- */
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // 1. Enter submitting state
+                statusDiv.innerHTML = "Transmitting offer to the network...";
+                statusDiv.className = "status-msg";
+                statusDiv.style.display = "block";
+                submitButton.innerHTML = "TRANSMITTING...";
+                submitButton.disabled = true;
+
+                const formData = new FormData(form);
+
+                // 2. Fetch request to Formspree
+                fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        // 3. Handle success
+                        statusDiv.innerHTML = "<strong>Offer Sent!</strong> We have received your proposal and will be in touch shortly.";
+                        statusDiv.className = "status-msg success-msg";
+                        submitButton.innerHTML = "OFFER SENT!";
+                        form.reset();
+                        resetFormState();
+                    } else {
+                        // 4. Handle server-side errors
+                        return response.json().then(data => {
+                            throw new Error(data.errors?.map(err => err.message).join(', ') || 'An unknown error occurred.');
+                        });
+                    }
+                })
+                .catch(error => {
+                    // 5. Handle network errors
+                    statusDiv.innerHTML = `<strong>Transmission Failed.</strong><br>${error.message} Please try again or contact us directly.`;
+                    statusDiv.className = "status-msg error-msg";
+                    submitButton.innerHTML = originalButtonText;
+                    submitButton.disabled = false;
+                    resetFormState(8000); // Longer delay for errors
+                });
+            });
+        }
+        document.addEventListener('DOMContentLoaded', initOfferForm);
+
+        /* --- BACKGROUND ANIMATION (Unchanged) --- */
         const canvas = document.getElementById('hash-canvas');
         const ctx = canvas.getContext('2d');
         let width, height;
         function resize() { width = window.innerWidth; height = window.innerHeight; canvas.width = width; canvas.height = height; }
         window.addEventListener('resize', resize); resize();
-
         const chars = "0x123456789ABCDEF";
         const columns = Math.floor(width / 25);
         const drops = [];
